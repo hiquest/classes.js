@@ -5,7 +5,9 @@ Basic implementation of classes in JavaScript. Just for educational reason.
 
 Overview
 ----------
-This is a really simple solution not envolving prototype (sadly, right?). You can create classes, you can construct objects, and you can extend classes overwriting attributes and methods.
+Everyone knows that we don't have classes in JavaScripts. But that doesn't mean that we can't emulate them (even though this is a very dubious feature). 
+
+This is a really simple solution not envolving prototypes (sadly, right?). You can create classes, you can construct objects, and you can extend classes overwriting attributes and methods.
 
 ``` JavaScript
    var PetClass = Classes.create({
@@ -21,6 +23,8 @@ This is a really simple solution not envolving prototype (sadly, right?). You ca
    tom.age(); // 1
    tom.growUp();
    tom.age(); // 2
+   
+   var Elephant = PetClass.extend({...}); // and so on; you get the point
 ```
 
 
