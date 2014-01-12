@@ -30,10 +30,12 @@
         }
     }
 
-    function extendArray(arrOfArrays) {
+    function combine() {
         var out = [];
 
-        arrOfArrays.forEach(function(arr) {
+        var args = Array.prototype.slice.call(arguments);
+
+        args.forEach(function(arr) {
             arr.forEach(function(el) {
                 out.push(el);
             });
@@ -45,7 +47,7 @@
     w.classesHelpers = {
         extendObj: extendObj,
         addAccessors: addAccessors,
-        extendArray: extendArray
+        combine: combine
     };
 
 })(window);
