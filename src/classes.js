@@ -86,6 +86,10 @@ var
                 [(options.fields || []), (extOptions.fields || [])]
             );
 
+            newOptions.methods = extendObj(
+                (options.methods || {}), (extOptions.methods || {})
+            );
+
             return Classes.create(newOptions);
         };
 

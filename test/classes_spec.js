@@ -14,6 +14,11 @@ describe("Classes", function () {
                 changeNameAndAge: function(name, age) {
                     this.name(name);
                     this.age(age);
+                },
+
+                growUpTwice: function() {
+                    this.growUp();
+                    this.growUp();
                 }
             }
         });
@@ -72,6 +77,32 @@ describe("Classes", function () {
             expect(tom.address()).toBe('New-York');
 
         });
+
+    });
+
+    describe('overriding a method', function() {
+        it('that was used by another one', function() {
+
+            var tom = Pet.create({kind: 'Cat', name: 'Tom', age: 1});
+            expect(tom.age()).toBe(1);
+            tom.growUpTwice();
+            expect(tom.age()).toBe(3);
+
+            var PetOverrided = Pet.extend({
+                methods: {
+                    growUp: function() {
+                        this.age(this.age() + 2);
+                    }
+                }
+            });
+
+            var pet = PetOverrided.create({kind: 'Cat', name: 'Tom', age: 1});
+            expect(pet.age()).toBe(1);
+            pet.growUpTwice();
+            expect(pet.age()).toBe(5);
+
+        });
+
 
     });
 
